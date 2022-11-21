@@ -39,7 +39,7 @@ export default function Frame() {
     if (addInsult) {
       setAddInsult(!addInsult);
 
-      //get the insults from the api an udpate values
+      //get the insults from the api an update values
       fetchInsult(index).then((result) => {
         setInsult(insult.concat(result));
         setCurrentIndex(index);
@@ -48,7 +48,7 @@ export default function Frame() {
     }
   }, [addInsult, insult, index, domElement, runAnimation]);
 
-  //add more insults only if we are the last element from the lost, otherwise keep
+  //add more insults only if we are the last element from the end, otherwise keep
   //reading the elements stored in the list
   const fetchMoreInsults = () => {
     setRunAnimation(!runAnimation);
@@ -68,7 +68,7 @@ export default function Frame() {
   };
 
   return (
-    //main container that follows that uses flexbox to mimic the grid layout
+    //main container that uses flexbox to mimic the grid layout
     <Grid
       container
       direction="column"

@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import { filterOffensiveWords } from "../utilities/filterOffensiveWords";
 export default function InsultCard({ insult }) {
   return (
-    //card component holds which is the one that changes color by the
+    //card component which is the one that changes color by the
     // bounce animation effect
     //uses utility function to check if there is a profanity word to ban it
     <Card
