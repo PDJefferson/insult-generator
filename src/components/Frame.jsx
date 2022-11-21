@@ -85,7 +85,7 @@ export default function Frame() {
         width={"80%"}
         justifyContent="center"
         textAlign="center"
-        height="60vh"
+        height="80vh"
       >
         <InsultCard insult={insult[currentIndex]} />
         <Grid

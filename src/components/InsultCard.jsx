@@ -8,7 +8,7 @@ export default function InsultCard({ insult }) {
     <Card
       id="card-component"
       direction="row"
-      sx={{ width: "1", height: "80%" }}
+      sx={{ width: "1", height: "70%" }}
       height="1"
       variant="outlined"
       style={{ background: "rgb(255, 84, 65) 100%" }}
@@ -20,7 +20,7 @@ export default function InsultCard({ insult }) {
       <CardContent>
         <Typography variant="h4" alignSelf={"center"} alignItems="center">
           {insult?.insult !== undefined
-            ? filterOffensiveWords(insult?.insult)
+            ? filterOffensiveWords(insult.insult)
             : ""}
         </Typography>
       </CardContent>
