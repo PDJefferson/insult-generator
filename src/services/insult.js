@@ -11,7 +11,7 @@ export async function fetchInsult(index) {
     // to then redirect  the request to the client with the data taken from the api, that way 
     //we don't have to deal with cors policies directly from the client
     const response = await fetch(
-      `https://fast-dawn-89938.herokuapp.com/https://evilinsult.com/generate_insult.php?type=json&lang=en&number=${index}`,
+      `https://www.proxyserver.live/https://evilinsult.com/generate_insult.php?type=json&lang=en&number=${index}`,
       {
         mode: "cors",
         method: "GET",
@@ -28,12 +28,10 @@ export async function fetchInsult(index) {
 
   //get the data from the response and returns unless an error is found
   try {
-    
     const data = await fetchData();
     
     return data;
   } catch (error) {
-    console.log(error);
     console.error("the error is the following: ", error);
     return;
   }

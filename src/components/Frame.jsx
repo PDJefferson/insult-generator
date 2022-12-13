@@ -7,12 +7,22 @@ import { fetchInsult } from "../services/insult";
 const BACKGROUND_COLOR_ANIMATION_INITIAL = "rgb(255, 84, 65) 100%";
 const BACKGROUND_COLOR_ANIMATION_SECONDARY = "rgb(96, 255, 65) 0%";
 export default function Frame() {
+  //to get the card component and apply the bounce animation on it
   const domElement = document.getElementById("card-component");
+  //stores the insults gotten from the api
   const [insult, setInsult] = useState([]);
+
+  //to store the last position of an insult
   const [index, setIndex] = useState(0);
+
+  //flag to run the animations
   const [runAnimation, setRunAnimation] = useState(false);
+  //to store the index of the current insult display in the screen
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  //flag to add an insult
   const [addInsult, setAddInsult] = useState(true);
+
 
   useEffect(() => {
     if (runAnimation) {
@@ -38,8 +48,8 @@ export default function Frame() {
     //if an insult is needed to add, append it to the list
     if (addInsult) {
       setAddInsult(!addInsult);
-
       //get the insults from the api an update values
+      //by calling this function which returns a promise
       fetchInsult(index).then((result) => {
         setInsult(insult.concat(result));
         setCurrentIndex(index);
@@ -48,7 +58,7 @@ export default function Frame() {
     }
   }, [addInsult, insult, index, domElement, runAnimation]);
 
-  //add more insults only if we are the last element from the end, otherwise keep
+  //add more insults only if we are at the last element from the end, otherwise keep
   //reading the elements stored in the list
   const fetchMoreInsults = () => {
     setRunAnimation(!runAnimation);
@@ -57,13 +67,14 @@ export default function Frame() {
       return;
     }
 
+    //add the insult
     setAddInsult(!addInsult);
   };
 
   //find the previous insult and read it
   const previousInsult = () => {
     setRunAnimation(!runAnimation);
-
+    //move the current index back one time
     setCurrentIndex(currentIndex - 1);
   };
 
